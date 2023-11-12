@@ -1,10 +1,16 @@
 
 
 const typeDefs = `
+type Query {
+        users: [User]
+        user(username: String!): User
+        me: User
+    }
+
     type User {
         _id: ID
-        username: String!
-        email: String!
+        username: String
+        email: String
         bookCount: Int
         savedBooks: [Book]
     }
@@ -20,9 +26,7 @@ const typeDefs = `
         token: ID!
         user: User
     }
-    type Query {
-        me: User
-    }
+    
     input BookInput {
         bookId: ID
         authors: [String]
